@@ -1,0 +1,80 @@
+@import "./resets";
+@import "./variables";
+
+.page-wrapper {
+  .intro {
+  }
+  header {
+    [role="banner"] {
+    }
+    h1 {
+    }
+    h2 {
+    }
+  }
+
+  .summary {
+    [role="article"] {
+    }
+    p {
+    }
+  }
+
+  //main class
+  // supporting class
+  //[role=main]{};
+
+  .explanation {
+    [role="aticle"] {
+      h3 v {
+      }
+      p {
+      }
+    }
+  }
+
+  .participation {
+    [role="aticle"] {
+      h3 {
+      }
+      p {
+      }
+    }
+  }
+
+  .benefits {
+    [role="aticle"] {
+      h3 {
+      }
+      p {
+      }
+    }
+  }
+
+  .requirements {
+    [role="article"] {
+      h3 {
+      }
+      p {
+        [role="contentinfo"] {
+        }
+      }
+    }
+  }
+
+  footer {
+  }
+
+  // continue from line 252 in the html file.
+}
+
+a {
+  &:link {
+  }
+  &:visited {
+  }
+  &:active {
+  }
+  &:hover {
+  }
+}
