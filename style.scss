@@ -1,22 +1,61 @@
 @import "./resets";
 @import "./variables";
 
+/********************
+ * Page Container
+ *******************/
 .page-wrapper {
-  .intro {
-  }
-  header {
-    [role="banner"] {
-    }
-    h1 {
-    }
-    h2 {
-    }
-  }
+  margin: 5px;
+  width: 390px;
 
-  .summary {
-    [role="article"] {
+  .intro {
+    /********************
+   * Header
+   *******************/
+    header {
+      display: flex;
+      background: $background-green;
+      color: white;
+      width: 390px;
+      height: 300px;
+      font-size: 15px;
+      font-family: $header-font;
+      font-weight: 400;
+      justify-content: center;
+      align-items: center;
+
+      &[role="banner"] {
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        display: flex;
+        width: 75%;
+        height: 55px;
+        font-size: 25px;
+        font-weight: 100;
+        background: white;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      h2 {
+        padding: 15px 37px 0 37px;
+        font-size: 50px;
+        font-weight: 200;
+        color: black;
+      }
     }
-    p {
+    /********************
+   * Summary Section
+   *******************/
+    .summary {
+      [role="article"] {
+      }
+      p {
+      }
     }
   }
 
@@ -24,6 +63,9 @@
   // supporting class
   //[role=main]{};
 
+  /********************
+   * Explanation Section
+   *******************/
   .explanation {
     [role="aticle"] {
       h3 v {
@@ -33,6 +75,9 @@
     }
   }
 
+  /********************
+   * Participation Section
+   *******************/
   .participation {
     [role="aticle"] {
       h3 {
@@ -42,6 +87,9 @@
     }
   }
 
+  /********************
+   * Benefit Section
+   *******************/
   .benefits {
     [role="aticle"] {
       h3 {
@@ -51,6 +99,9 @@
     }
   }
 
+  /********************
+   * Requirements Section
+   *******************/
   .requirements {
     [role="article"] {
       h3 {
@@ -68,6 +119,9 @@
   // continue from line 252 in the html file.
 }
 
+/********************
+ * URL CSS Code - If we don't want it nested somewhere else
+ *******************/
 a {
   &:link {
   }
@@ -77,4 +131,8 @@ a {
   }
   &:hover {
   }
+}
+
+abbr[title="Cascading Style Sheets"] {
+  text-decoration-style: dashed;
 }
