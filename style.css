@@ -61,12 +61,8 @@ body * {
   padding-bottom: 32.82051%;
 }
 .page-wrapper .benefits p {
-  padding: 30px 5.12821% 0;
   margin: 0;
   background: #F3BE03;
-}
-.page-wrapper .benefits p abbr {
-  text-decoration: none;
 }
 .page-wrapper .benefits::before {
   content: "";
