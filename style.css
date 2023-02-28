@@ -5,15 +5,30 @@
   padding: 0;
 }
 
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body {
+  margin: 0;
+}
+body * {
+  font-size: 17px;
+  line-height: 130%;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0 5px;
+}
+
 /********************
  * Page Container
  *******************/
 .page-wrapper {
-  margin: 5px;
-  width: 390px;
-  /********************
-   * Explanation Section
-   *******************/
+  max-width: 100%;
   /********************
    * Participation Section
    *******************/
@@ -24,52 +39,81 @@
    * Requirements Section
    *******************/
 }
-.page-wrapper .intro {
-  /********************
-  * Header
-  *******************/
-  /********************
-  * Summary Section
-  *******************/
+.page-wrapper h1,
+.page-wrapper h2,
+.page-wrapper h3,
+.page-wrapper p {
+  margin: 0;
 }
-.page-wrapper .intro header {
-  display: flex;
-  background: #20615B;
-  color: white;
-  width: 390px;
-  height: 300px;
-  font-size: 15px;
+.page-wrapper h3 {
   font-family: "Inika", serif;
-  font-weight: 400;
-  justify-content: center;
-  align-items: center;
+  font-size: 48px;
 }
-.page-wrapper .intro header[role=banner] {
-  display: flex;
-  flex-direction: column;
+.page-wrapper .benefits,
+.page-wrapper .requirements {
+  padding: 5px;
 }
-.page-wrapper .intro header h1 {
-  display: flex;
-  width: 75%;
-  height: 55px;
-  font-size: 25px;
-  font-weight: 100;
-  background: white;
-  color: black;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
+.page-wrapper .benefits {
+  background: #F3BE03;
+  color: #2B2B2B;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 32.82051%;
 }
-.page-wrapper .intro header h2 {
-  padding: 15px 37px 0 37px;
-  font-size: 50px;
-  font-weight: 200;
-  color: black;
+.page-wrapper .benefits p {
+  padding: 30px 5.12821% 0;
+  margin: 0;
+  background: #F3BE03;
 }
+.page-wrapper .benefits p abbr {
+  text-decoration: none;
+}
+.page-wrapper .benefits::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 32.82051%;
+  background-image: url("./images/benefits_bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.page-wrapper .benefits::after {
+  left: 4.10256%;
+  background-image: url("./images/leaf_1.svg");
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: 5.265%;
+  width: 25.64103%;
+  padding-top: 25.64103%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: rotating 12s 1s linear infinite;
+}
+.page-wrapper .requirements {
+  background: #1A1831;
+  color: #FFFFFF;
+}
+
 /********************
  * URL CSS Code - If we don't want it nested somewhere else
  *******************/
-abbr[title="Cascading Style Sheets"] {
-  text-decoration-style: dashed;
-}/*# sourceMappingURL=style.css.map */
+a:link {
+  color: #DB7906;
+  text-decoration: none;
+}
+a:visited {
+  color: #F3BE03;
+}
+a:hover {
+  border-bottom: 1px solid #B46100;
+}
+a:active {
+  color: #20615B;
+}
+
+/* 35em is also 560px (if basefont is 16px) */
+/* 64em is also 1028px (if basefont is 16px) *//*# sourceMappingURL=style.css.map */
