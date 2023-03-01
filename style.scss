@@ -159,7 +159,7 @@ body {
       content: "";
       position: absolute;
       z-index: 1;
-      left: 0;
+      right: -66.6%;
       bottom: 0;
       width: 100%;
       padding-top: $padding_bottom;
@@ -169,7 +169,8 @@ body {
     }
 
     &::after {
-      left: 4.10256%;
+      // left: 4.10256%;
+      right: 3.5%;
       background-image: url("./images/leaf_1.svg");
       @include leafs_style;
       animation: rotating 12s 1s linear infinite;
@@ -222,14 +223,27 @@ a {
 //   text-decoration-style: dashed;
 // }
 
-/* 35em is also 560px (if basefont is 16px) */
-@media only screen and (min-width: 35rem) {
+@media only screen and (min-width: 420px) {
   .page-wrapper {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+
+     .benefits {
+      
+     }
+
+    // .requirements {
+    // #zen-requirements {
+    //   display: grid;
+    //   grid-template-columns: repeat(3, 1fr);
+    //   grid-gap: 20px; /* adjust as needed */
+    // }
+
+    // 
+    
+    // }
   }
 }
-
-/* 64em is also 1028px (if basefont is 16px) */
-// @media only screen and (min-width: 64rem) {
-// }
