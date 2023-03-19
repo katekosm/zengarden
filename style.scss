@@ -29,87 +29,6 @@ body {
 .page-wrapper {
   max-width: 100%;
 
-  // .intro {
-  //   /********************
-  //  * Header
-  //  *******************/
-  //   header {
-  //     display: flex;
-  //     background: $background-green;
-  //     color: white;
-  //     width: 390px;
-  //     height: 300px;
-  //     font-size: 15px;
-  //     font-family: $header-font;
-  //     font-weight: 400;
-  //     justify-content: center;
-  //     align-items: center;
-
-  //     &[role="banner"] {
-  //       display: flex;
-  //       flex-direction: column;
-  //     }
-  //     h1 {
-  //       display: flex;
-  //       width: 75%;
-  //       height: 55px;
-  //       font-size: 25px;
-  //       font-weight: 100;
-  //       background: white;
-  //       color: black;
-  //       justify-content: center;
-  //       align-items: center;
-  //       text-align: center;
-  //       text-transform: uppercase;
-  //     }
-  //     h2 {
-  //       padding: 15px 37px 0 37px;
-  //       font-size: 50px;
-  //       font-weight: 200;
-  //       color: black;
-  //       text-align: center;
-  //       // background: transparent url(beauty.gif) no-repeat top left;
-  //     }
-  //   }
-  //   /********************
-  //  * Summary Section
-  //  *******************/
-  //   .summary {
-  //     [role="article"] {
-  //     }
-  //     p {
-  //     }
-  //   }
-  // }
-
-  // //main class
-  // // supporting class
-  // //[role=main]{};
-
-  // /********************
-  //  * Explanation Section
-  //  *******************/
-  // .explanation {
-  //   [role="aticle"] {
-  //     h3 v {
-  //     }
-  //     p {
-  //     }
-  //   }
-  // }
-
-  /********************
-   * Participation Section
-   *******************/
-  // .participation {
-  //   [role="aticle"] {
-  //     h3 {
-  //     }
-  //     p {
-  //     }
-  //   }
-  // }
-
   h1,
   h2,
   h3,
@@ -139,7 +58,7 @@ body {
       content: "";
       position: absolute;
       z-index: 2;
-      bottom: 5.265%;
+      bottom: 2.265%;
       width: $leaf_size;
       padding-top: $leaf_size;
       background-size: contain;
@@ -170,6 +89,7 @@ body {
 
     &::after {
       // left: 4.10256%;
+      // position: absolute;
       right: 3.5%;
       background-image: url("./images/leaf_1.svg");
       @include leafs_style;
@@ -184,25 +104,8 @@ body {
     background: $background-dark_blue;
     color: $text-color2;
   }
-  // [role="article"] {
-  //   h3 {
-  //   }
-  //   p {
-  //     [role="contentinfo"] {
-  //     }
-  //   }
-  // }
 }
 
-// footer {
-// }
-
-// continue from line 252 in the html file.
-// }
-
-/********************
- * URL CSS Code - If we don't want it nested somewhere else
- *******************/
 a {
   &:link {
     color: $background-orange;
@@ -219,31 +122,58 @@ a {
   }
 }
 
-// abbr[title="Cascading Style Sheets"] {
-//   text-decoration-style: dashed;
-// }
-
 @media only screen and (min-width: 420px) {
   .page-wrapper {
-    // display: flex;
-    // flex-direction: row;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr ;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    max-width: 100%;
+    max-width: 1200px;
+  }
 
-     .benefits {
-      
-     }
-
-    // .requirements {
-    // #zen-requirements {
-    //   display: grid;
-    //   grid-template-columns: repeat(3, 1fr);
-    //   grid-gap: 20px; /* adjust as needed */
-    // }
-
-    // 
+  // .requirements {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr 1fr;
+  //   grid-template-areas: 
+  //     "header header header";
+  //     // "para1 para2 para3";
     
-    // }
+  //   h3 {
+  //     grid-area: header;
+  //   }
+
+  //   // p {
+  //   //   grid-area: paragraphs;
+  //   // }
+
+  //   // p:nth-child(1) {
+  //   //   grid-area: para1;
+  //   // }
+
+  //   // p:nth-last-child(5) {
+  //   //   grid-area: para3;
+  //   // }
+  // }
+
+  .requirements {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0.5em;
+      z-index: -1;
+    }
+
+    column-count: 3;
+
+    p {
+      // column-count: 3;
+      padding: 5px;
+      // float: left;
+    }
   }
 }
