@@ -146,6 +146,112 @@ header {
     }
 }
 
+// jesse
+/********************
+   * Benefit Section
+   *******************/
+.benefits {
+    background: $background-yellow;
+    color: $text-color1;
+    $padding_bottom: 32.82051%; // 128px height on 390px width
+    $leaf_size: 25.64103%; // 100px on 390px width
+
+    @mixin leafs_style {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        bottom: 2.265%;
+        width: $leaf_size;
+        padding-top: $leaf_size;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    position: relative;
+    z-index: 1;
+    padding-bottom: $padding_bottom;
+
+    p {
+        margin: 0;
+        background: $background-yellow;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        right: -33.6%;
+        bottom: -136px;
+        width: 100%;
+        padding-top: $padding_bottom;
+        background-image: url("./images/benefits_bg.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate(90deg);
+    }
+
+    &::after {
+        // left: 4.10256%;
+        // position: absolute;
+        right: 3.5%;
+        background-image: url("./images/leaf_1.svg");
+        @include leafs_style;
+        animation: rotating 12s 1s linear infinite;
+    }
+}
+
+/********************
+   * Requirements Section
+   *******************/
+.requirements {
+    background: $background-dark_blue;
+    color: $text-color2;
+}
+
+
+@media only screen and (min-width: 420px) {
+    .page-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr 1fr;
+        max-width: 100%;
+        max-width: 1200px;
+
+        .benefits {
+            padding-left: 150px;
+
+            &::before {
+                bottom: -114px;
+            }
+        }
+
+        .requirements {
+            position: relative;
+            column-count: 3;
+            padding-right: 150px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 0.5em;
+                z-index: -1;
+            }
+
+            h3 {
+                column-span: all;
+            }
+
+            p {
+                padding: 5px;
+            }
+        }
+    }
+}
+
+// Elizabeth
 footer {
     background-color: $green;
     margin-top: 20rem;
