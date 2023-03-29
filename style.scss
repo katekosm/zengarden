@@ -147,15 +147,16 @@ header {
 }
 
 // jesse
+
 /********************
    * Benefit Section
    *******************/
+
 .benefits {
     background: $background-yellow;
     color: $text-color1;
     $padding_bottom: 32.82051%; // 128px height on 390px width
     $leaf_size: 25.64103%; // 100px on 390px width
-
     @mixin leafs_style {
         content: "";
         position: absolute;
@@ -166,16 +167,13 @@ header {
         background-size: contain;
         background-repeat: no-repeat;
     }
-
     position: relative;
     z-index: 1;
     padding-bottom: $padding_bottom;
-
     p {
         margin: 0;
         background: $background-yellow;
     }
-
     &::before {
         content: "";
         position: absolute;
@@ -189,7 +187,6 @@ header {
         background-repeat: no-repeat;
         transform: rotate(90deg);
     }
-
     &::after {
         // left: 4.10256%;
         // position: absolute;
@@ -200,14 +197,15 @@ header {
     }
 }
 
+
 /********************
    * Requirements Section
    *******************/
+
 .requirements {
     background: $background-dark_blue;
     color: $text-color2;
 }
-
 
 @media only screen and (min-width: 420px) {
     .page-wrapper {
@@ -216,20 +214,16 @@ header {
         grid-template-rows: 1fr 1fr;
         max-width: 100%;
         max-width: 1200px;
-
         .benefits {
             padding-left: 150px;
-
             &::before {
                 bottom: -114px;
             }
         }
-
         .requirements {
             position: relative;
             column-count: 3;
             padding-right: 150px;
-
             &::after {
                 content: "";
                 position: absolute;
@@ -239,11 +233,9 @@ header {
                 height: 0.5em;
                 z-index: -1;
             }
-
             h3 {
                 column-span: all;
             }
-
             p {
                 padding: 5px;
             }
