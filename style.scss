@@ -1,66 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inika&family=Inter&display=swap');
-$green: #20615B;
-$orange: #DB7906;
-$font_color: #2B2B2B;
-$mobile_content_width: 350px;
-$mobile_content_padding: 5.12821%;
-$desktop_content_width: 1215px;
-$desktop_content_padding: 353px;
-@mixin font-inika {
-    font-family: Inika, serif;
-}
-
-@mixin font-basic {
-    font-family: Inter, sans-serif;
-}
-
-@mixin headers-style {
-    font-family: Inika, serif;
-    font-size: 48px;
-    line-height: 100%;
-}
-
-@keyframes rotating {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
-    20% {
-        transform: translateY(-80%);
-    }
-    40% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    70% {
-        transform: translateY(80%);
-    }
-    90% {
-        transform: translateY(0);
-    }
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-}
+@import './variables';
+@import './mixins';
+@import './reset';
 
 body {
-    margin: 0;
     * {
         @include font-basic;
         font-size: 17px;
@@ -69,13 +12,6 @@ body {
         font-style: normal;
         color: $font_color;
     }
-}
-
-h1,
-h2,
-h3,
-p {
-    margin: 0;
 }
 
 .page-wrapper {
@@ -117,7 +53,7 @@ header {
     @mixin leafs_style {
         content: '';
         position: absolute;
-        z-index: 3;
+        z-index: 2;
         top: 5.265%;
         width: $leaf_size;
         padding-top: $leaf_size;
@@ -127,22 +63,24 @@ header {
     position: relative;
     z-index: 1;
     padding-top: $padding_top;
+    overflow: hidden;
     p {
         padding: 30px $mobile_content_padding 0;
         margin: 0;
         background: #FFF8E1;
+        z-index: 3;
         abbr {
             text-decoration: none;
         }
     }
-    p+p {
+    p + p {
         padding-top: 20px;
         padding-bottom: 30px;
     }
     &::before {
         content: '';
         position: absolute;
-        z-index: 2;
+        z-index: 3;
         left: 0;
         top: 0;
         width: 100%;
@@ -158,16 +96,22 @@ header {
         animation: rotating 12s 1s linear infinite;
     }
     p:first-child {
+        position: relative;
+        z-index: 3;
+    }
+    p:nth-child(2) {
         &::before {
             left: 37.69231%;
             background-image: url('./images/leaf_2.svg');
             @include leafs_style;
+            transform-origin: center bottom;
+            animation: rotateZ 12s 1s ease-in-out infinite;
         }
         &::after {
             right: 3.6%;
             background-image: url('./images/leaf_3.svg');
             @include leafs_style;
-            animation: scroll 15s 1s linear infinite;
+            animation: scroll 12s 1s ease-in-out infinite;
         }
     }
 }
@@ -180,5 +124,27 @@ header {
     }
     p {
         margin-top: 15px;
+    }
+}
+
+.supporting {
+    padding-top: 365px;
+    background: url('./images/support_bg.jpg') top no-repeat;
+}
+
+.explanation, .participation {
+    padding: 30px 20px 0;
+
+    h3 {
+        @include headers-style;
+        color: $orange;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+
+    @media screen and  (min-width:420px) {
+        // desktop styles
     }
 }
