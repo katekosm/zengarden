@@ -3,3 +3,4 @@ package-lock.json
 style.css.map
 node_modules
 *:Zone.Identifier
+.vscode

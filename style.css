@@ -193,17 +193,91 @@ header h2 abbr {
   background: url("./images/support_bg.jpg") top no-repeat;
 }
 
-.explanation, .participation {
+.explanation,
+.participation {
   padding: 30px 20px 0;
 }
-.explanation h3, .participation h3 {
+.explanation h3,
+.participation h3 {
   font-family: Inika, serif;
   font-size: 48px;
   line-height: 100%;
   color: #DB7906;
 }
-.explanation p, .participation p {
+.explanation p,
+.participation p {
   margin-top: 10px;
+}
+footer {
+  background-color: #20615B;
+  margin-top: 20rem;
+  padding-bottom: 0.5em;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+footer a {
+  color: white;
+  padding-top: 1rem;
+  text-decoration: none;
+  line-height: 130%;
+  font-weight: 400;
+  font-style: normal;
+}
+
+aside {
+  font-size: 17px;
+  line-height: 130%;
+  font-weight: 400;
+  font-style: normal;
+  padding: 40px 5.12821% 40px;
+  background-color: #DB7906;
+}
+aside h3 {
+  font-family: Inika, serif;
+  font-size: 48px;
+  line-height: 100%;
+  color: white;
+}
+aside li {
+  list-style-type: none;
+}
+aside li a {
+  text-decoration: none;
+}
+aside .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7rem;
+}
+
+@media only screen and (max-width: 1170px) {
+  footer {
+    margin-top: 45rem;
+  }
+  aside {
+    align-content: center;
+  }
+  aside .wrapper {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 425px) {
+  footer {
+    margin-top: 47rem;
+    gap: 1rem;
+  }
+  aside {
+    padding: 0 0 0 1rem;
+  }
+  aside .wrapper {
+    align-items: flex-start;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

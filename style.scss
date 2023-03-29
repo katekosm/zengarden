@@ -2,7 +2,6 @@
 @import './variables';
 @import './mixins';
 @import './reset';
-
 body {
     * {
         @include font-basic;
@@ -73,7 +72,7 @@ header {
             text-decoration: none;
         }
     }
-    p + p {
+    p+p {
         padding-top: 20px;
         padding-bottom: 30px;
     }
@@ -132,19 +131,88 @@ header {
     background: url('./images/support_bg.jpg') top no-repeat;
 }
 
-.explanation, .participation {
+.explanation,
+.participation {
     padding: 30px 20px 0;
-
     h3 {
         @include headers-style;
         color: $orange;
     }
-
     p {
         margin-top: 10px;
     }
-
-    @media screen and  (min-width:420px) {
+    @media screen and (min-width:420px) {
         // desktop styles
+    }
+}
+
+footer {
+    background-color: $green;
+    margin-top: 20rem;
+    padding-bottom: 0.5em;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    a {
+        color: white;
+        padding-top: 1rem;
+        text-decoration: none;
+        line-height: 130%;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+aside {
+    font-size: 17px;
+    line-height: 130%;
+    font-weight: 400;
+    font-style: normal;
+    padding: 40px $mobile_content_padding 40px;
+    background-color: $orange;
+    h3 {
+        @include headers-style();
+        color: white;
+    }
+    li {
+        list-style-type: none;
+        a {
+            text-decoration: none;
+        }
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 7rem;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    footer {
+        margin-top: 45rem;
+    }
+    aside {
+        align-content: center;
+        .wrapper {
+            flex-direction: column;
+            gap: 2.5rem;
+            align-items: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    footer {
+        margin-top: 47rem;
+        gap: 1rem;
+    }
+    aside {
+        padding: 0 0 0 1rem;
+        .wrapper {
+            align-items: flex-start;
+        }
     }
 }
