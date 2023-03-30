@@ -15,6 +15,7 @@ body {
 
 .page-wrapper {
     max-width: 100%;
+    position: absolute;
 }
 
 header {
@@ -63,6 +64,9 @@ header {
     z-index: 1;
     padding-top: $padding_top;
     overflow: hidden;
+    a {
+        text-decoration: underline;
+    }
     p {
         padding: 30px $mobile_content_padding 0;
         margin: 0;
@@ -153,46 +157,44 @@ header {
    *******************/
 
 .benefits {
+    margin-top: 30px;
+    padding: 30px 20px 0;
     background: $background-yellow;
     color: $text-color1;
-    $padding_bottom: 32.82051%; // 128px height on 390px width
-    $leaf_size: 25.64103%; // 100px on 390px width
-    @mixin leafs_style {
-        content: "";
-        position: absolute;
-        z-index: 2;
-        bottom: 2.265%;
-        width: $leaf_size;
-        padding-top: $leaf_size;
-        background-size: contain;
-        background-repeat: no-repeat;
+
+    h3 {
+        @include headers-style;
     }
+
+    $padding_bottom: 69.23076%; // 270px height on 390px width
+    $leaf_size: 53.84615%; // 210px on 390px width
     position: relative;
     z-index: 1;
     padding-bottom: $padding_bottom;
     p {
-        margin: 0;
-        background: $background-yellow;
+        margin-top: 10px;
+        margin-bottom: 30px;
     }
     &::before {
         content: "";
         position: absolute;
         z-index: 1;
-        right: -33.6%;
-        bottom: -136px;
+        left: 0;
+        bottom: 0;
         width: 100%;
         padding-top: $padding_bottom;
-        background-image: url("./images/benefits_bg.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        transform: rotate(90deg);
+        background-color: $green;
     }
     &::after {
-        // left: 4.10256%;
-        // position: absolute;
-        right: 3.5%;
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: calc(50% - ($leaf_size / 2));
+        bottom: 30px;
+        width: $leaf_size;
+        padding-top: $leaf_size;
         background-image: url("./images/leaf_1.svg");
-        @include leafs_style;
+        background-size: 100%;
         animation: rotating 12s 1s linear infinite;
     }
 }
@@ -203,8 +205,18 @@ header {
    *******************/
 
 .requirements {
+    padding: 30px 20px 40px;
     background: $background-dark_blue;
-    color: $text-color2;
+    * {
+        color: $text-color2;
+    }
+    h3 {
+        @include headers-style;
+        line-height: 130%;
+    }
+    p {
+        margin-top: 10px;
+    }
 }
 
 @media only screen and (min-width: 420px) {
@@ -245,25 +257,26 @@ header {
 
 // Elizabeth
 footer {
-    background-color: $green;
-    margin-top: 20rem;
-    padding-bottom: 0.5em;
-    width: 100%;
     position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px 53px;
+    background-color: $green;
     display: flex;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: space-between;
     a {
         color: white;
-        padding-top: 1rem;
+        font-size: 20px;
         text-decoration: none;
-        line-height: 130%;
-        font-weight: 400;
-        font-style: normal;
     }
 }
 
-aside {
+.sidebar {
+    padding: 30px 20px;
+    margin-bottom: 50px; // height of footer
+    * {
+        color: white;
+    }
     font-size: 17px;
     line-height: 130%;
     font-weight: 400;
@@ -276,41 +289,24 @@ aside {
     }
     li {
         list-style-type: none;
+
         a {
             text-decoration: none;
         }
     }
+    li + li {
+        margin-top: 8px;
+    }
     .wrapper {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        gap: 7rem;
-    }
-}
 
-@media only screen and (max-width: 1170px) {
-    footer {
-        margin-top: 45rem;
-    }
-    aside {
-        align-content: center;
-        .wrapper {
-            flex-direction: column;
-            gap: 2.5rem;
-            align-items: center;
+        div + div {
+            margin-top: 15px;
         }
     }
-}
-
-@media only screen and (max-width: 425px) {
-    footer {
-        margin-top: 47rem;
-        gap: 1rem;
-    }
-    aside {
-        padding: 0 0 0 1rem;
-        .wrapper {
-            align-items: flex-start;
-        }
+    ul {
+        margin-top: 12px;
     }
 }
