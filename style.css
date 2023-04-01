@@ -148,7 +148,7 @@ header h2 {
 @media (min-width: 1215px) {
   header h2 {
     padding: 0;
-    font-size: 96px;
+    font-size: 5vw;
     line-height: 130.20833%;
     margin-top: 29px;
     position: relative;
@@ -234,6 +234,8 @@ header h2 abbr {
 @media (min-width: 1215px) {
   .summary::before {
     top: 495px;
+    left: unset;
+    right: 398px;
     width: 74.58492%;
     padding-top: 17.30524%;
     background-image: url("./images/summary_bg_desktop.svg");
@@ -388,9 +390,8 @@ header h2 abbr {
     padding-top: 0;
     margin-top: 62px;
     background: none;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+    display: grid;
+    grid-template-columns: 33.80208% 66.19791%;
   }
 }
 
@@ -425,6 +426,7 @@ header h2 abbr {
     padding-left: 49.113%;
     background: url("./images/support_bg3.jpg") left top no-repeat;
     background-size: auto;
+    grid-column: 1/-1;
   }
 }
 @media (min-width: 1215px) {
@@ -439,6 +441,7 @@ header h2 abbr {
     padding-right: 18.38542%;
     padding-left: 35.26042%;
     background: url("./images/participation_bg.svg") left 18.38542% top no-repeat;
+    grid-column: 1/-1;
   }
 }
 
@@ -447,12 +450,17 @@ header h2 abbr {
    *******************/
 .benefits {
   margin-top: 30px;
-  padding: 30px 5.12821% 0;
+  padding: 30px 5.12821% 69.23076%;
   background: #F3BE03;
   color: #2B2B2B;
   position: relative;
   z-index: 1;
-  padding-bottom: 69.23076%;
+}
+@media (min-width: 1215px) {
+  .benefits {
+    padding: 49px 25px 295px 54.39137%;
+    grid-column: 1/span 1;
+  }
 }
 .benefits h3 {
   font-family: Inika, serif;
@@ -479,6 +487,14 @@ header h2 abbr {
   padding-top: 69.23076%;
   background-color: #20615B;
 }
+@media (min-width: 1215px) {
+  .benefits::before {
+    width: 296px;
+    padding-top: 296px;
+    left: unset;
+    background-color: #DB7906;
+  }
+}
 .benefits::after {
   content: "";
   position: absolute;
@@ -491,6 +507,14 @@ header h2 abbr {
   background-size: 100%;
   animation: rotating 12s 1s linear infinite;
 }
+@media (min-width: 1215px) {
+  .benefits::after {
+    left: 61.17103%;
+    width: 32.35747%;
+    padding-top: 32.35747%;
+    bottom: 43px;
+  }
+}
 
 /********************
    * Requirements Section
@@ -498,6 +522,13 @@ header h2 abbr {
 .requirements {
   padding: 30px 5.12821% 40px;
   background: #1A1831;
+}
+@media (min-width: 1215px) {
+  .requirements {
+    grid-column: 2/span 1;
+    padding: 49px 27.7734% 0 28px;
+    column-count: 3;
+  }
 }
 .requirements * {
   color: #FFFFFF;
@@ -514,8 +545,25 @@ header h2 abbr {
     line-height: 131.03448%;
   }
 }
+@media (min-width: 1215px) {
+  .requirements h3 {
+    width: 100%;
+    column-span: all;
+  }
+}
 .requirements p {
   margin-top: 10px;
+}
+@media (min-width: 1215px) {
+  .requirements p {
+    max-width: 271px;
+  }
+}
+@media (min-width: 1215px) {
+  .benefits,
+  .requirements {
+    margin-top: 90px;
+  }
 }
 
 footer {
@@ -525,12 +573,13 @@ footer {
   padding: 12px 12.82051%;
   background-color: #20615B;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 footer a {
   color: white;
   font-size: 20px;
   text-decoration: none;
+  padding: 0 10px;
 }
 
 .sidebar {
@@ -542,6 +591,11 @@ footer a {
   font-style: normal;
   padding: 30px 5.12821%;
   background-color: #DB7906;
+}
+@media (min-width: 1215px) {
+  .sidebar {
+    padding: 61px 18.38542% 50px;
+  }
 }
 .sidebar * {
   color: white;
@@ -558,11 +612,17 @@ footer a {
     line-height: 131.03448%;
   }
 }
+@media (min-width: 1215px) {
+  .sidebar h3 {
+    font-size: 40px;
+    line-height: 130%;
+  }
+}
 .sidebar li {
   list-style-type: none;
 }
 .sidebar li a {
-  text-decoration: none;
+  text-decoration: underline;
 }
 .sidebar li + li {
   margin-top: 8px;
@@ -572,8 +632,19 @@ footer a {
   flex-direction: column;
   justify-content: center;
 }
+@media (min-width: 1215px) {
+  .sidebar .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 .sidebar .wrapper div + div {
   margin-top: 15px;
+}
+@media (min-width: 1215px) {
+  .sidebar .wrapper div + div {
+    margin-top: 0;
+  }
 }
 .sidebar ul {
   margin-top: 12px;
