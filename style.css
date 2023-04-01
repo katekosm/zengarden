@@ -236,8 +236,8 @@ header h2 abbr {
     top: 495px;
     left: unset;
     right: 398px;
-    width: 74.58492%;
-    padding-top: 17.30524%;
+    width: 1168px;
+    padding-top: 271px;
     background-image: url("./images/summary_bg_desktop.svg");
     background-color: white;
     background-size: cover;
@@ -254,19 +254,21 @@ header h2 abbr {
   padding-top: 25.64103%;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
   animation: rotating 12s 1s linear infinite;
 }
 @media (min-width: 1215px) {
   .summary::after {
     top: 525px;
-    width: 13.40996%;
-    padding-top: 13.40996%;
+    width: 210px;
+    padding-top: 210px;
     background-size: contain;
   }
 }
 @media (min-width: 1215px) {
   .summary::after {
-    left: 24.96807%;
+    left: unset;
+    right: 967px;
     z-index: 3;
   }
 }
@@ -285,20 +287,22 @@ header h2 abbr {
   padding-top: 25.64103%;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
   transform-origin: center bottom;
   animation: rotateZ 12s 1s ease-in-out infinite;
 }
 @media (min-width: 1215px) {
   .summary p:nth-child(2)::before {
     top: 525px;
-    width: 13.40996%;
-    padding-top: 13.40996%;
+    width: 210px;
+    padding-top: 210px;
     background-size: contain;
   }
 }
 @media (min-width: 1215px) {
   .summary p:nth-child(2)::before {
-    left: 41.8263%;
+    left: unset;
+    right: 696px;
   }
 }
 .summary p:nth-child(2)::after {
@@ -312,19 +316,20 @@ header h2 abbr {
   padding-top: 25.64103%;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
   animation: scroll 12s 1s ease-in-out infinite;
 }
 @media (min-width: 1215px) {
   .summary p:nth-child(2)::after {
     top: 525px;
-    width: 13.40996%;
-    padding-top: 13.40996%;
+    width: 210px;
+    padding-top: 210px;
     background-size: contain;
   }
 }
 @media (min-width: 1215px) {
   .summary p:nth-child(2)::after {
-    left: 59.1954%;
+    right: 430px;
     animation: rotating-revert 12s 1s linear infinite;
   }
 }
@@ -344,7 +349,7 @@ header h2 abbr {
 }
 @media (min-width: 1215px) {
   .preamble * {
-    max-width: 544px;
+    max-width: 44%;
   }
 }
 .preamble h3 {
@@ -422,7 +427,8 @@ header h2 abbr {
   .explanation {
     padding-top: 0;
     padding-right: 18.38542%;
-    padding-bottom: 270px;
+    padding-bottom: 20px;
+    min-height: 705px;
     padding-left: 49.113%;
     background: url("./images/support_bg3.jpg") left top no-repeat;
     background-size: auto;
@@ -432,6 +438,19 @@ header h2 abbr {
 @media (min-width: 1215px) {
   .explanation p {
     padding-right: 20px;
+    margin-top: 0;
+    padding-top: 10px;
+  }
+}
+@media (min-width: 1215px) {
+  .explanation p:last-child {
+    padding-bottom: 30px;
+  }
+}
+@media (min-width: 1215px) {
+  .explanation > * {
+    background: white;
+    padding-left: 20px;
   }
 }
 
@@ -492,6 +511,7 @@ header h2 abbr {
     width: 296px;
     padding-top: 296px;
     left: unset;
+    right: 0;
     background-color: #DB7906;
   }
 }
@@ -509,9 +529,10 @@ header h2 abbr {
 }
 @media (min-width: 1215px) {
   .benefits::after {
-    left: 61.17103%;
-    width: 32.35747%;
-    padding-top: 32.35747%;
+    left: unset;
+    right: 38px;
+    width: 210px;
+    padding-top: 210px;
     bottom: 43px;
   }
 }
