@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inika&family=Inter&display=swap');
 @import './variables';
 @import './mixins';
 @import './reset';
@@ -10,6 +9,10 @@ body {
         font-weight: 400;
         font-style: normal;
         color: $font_color;
+
+        @include for-size($desktop) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -17,12 +20,25 @@ body {
     max-width: 100%;
     position: absolute;
 }
-
+// header > *,  {
+//     @include for-size($desktop) {
+//         max-width: $desktop_content_width;
+//     }
+// }
+.intro {
+    @include for-size($desktop) {
+        position: relative;
+    }
+}
 header {
     background: $green;
     padding-top: 50px;
     padding-bottom: 40px;
     text-align: center;
+    @include for-size($desktop) {
+        padding: 145px $desktop_content_padding 408px;
+        text-align: left;
+    }
     h1 {
         @include headers-style;
         font-size: 20px;
@@ -31,11 +47,25 @@ header {
         padding: 15px 64.5px;
         background: white;
         text-transform: uppercase;
+        @include for-size($desktop) {
+            padding: 15px 38px;
+            font-size: 20px;
+            line-height: 130%;
+        }
     }
     h2 {
         @include headers-style;
         color: white;
         margin: 24px 0 0;
+        padding: 0 $mobile_content_padding;
+        @include for-size($desktop) {
+            padding: 0;
+            font-size: 96px;
+            line-height: 130.20833%;
+            margin-top: 29px;
+            position: relative;
+            z-index: 2;
+        }
         abbr {
             display: inline-block;
             color: inherit;
@@ -50,6 +80,8 @@ header {
 .summary {
     $padding_top: 32.82051%; // 128px height on 390px width
     $leaf_size: 25.64103%; // 100px on 390px width
+    $leaf_size_desktop: 13.40996%;
+    $summary_top_desktop: 495px;
     @mixin leafs_style {
         content: '';
         position: absolute;
@@ -57,13 +89,31 @@ header {
         top: 5.265%;
         width: $leaf_size;
         padding-top: $leaf_size;
-        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
+        @include for-size($desktop) {
+            top: $summary_top_desktop+30px;
+            width: $leaf_size_desktop;
+            padding-top: $leaf_size_desktop;
+            background-size: contain;
+        }
     }
     position: relative;
     z-index: 1;
     padding-top: $padding_top;
     overflow: hidden;
+    @include for-size($desktop) {
+        position: absolute;
+        top: 0;
+        right: $desktop_content_padding;
+        padding-top: 0;
+        height: 100%;
+        width: 81.5625%;
+        overflow: visible;
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+    }
     a {
         text-decoration: underline;
     }
@@ -72,13 +122,28 @@ header {
         margin: 0;
         background: #FFF8E1;
         z-index: 3;
+        @include for-size($desktop) {
+            max-width: 398px;
+            background: $background-yellow;
+            padding-left: 22px;
+            padding-right: 43px;
+        }
         abbr {
             text-decoration: none;
+        }
+    }
+    p:first-child {
+        @include for-size($desktop) {
+            padding-top: 360px;
         }
     }
     p+p {
         padding-top: 20px;
         padding-bottom: 30px;
+        @include for-size($desktop) {
+            padding-top: 24px;
+            padding-bottom: 223px;
+        }
     }
     &::before {
         content: '';
@@ -91,12 +156,24 @@ header {
         background-image: url('./images/summary_bg.svg');
         background-size: contain;
         background-repeat: no-repeat;
+        @include for-size($desktop) {
+            top: $summary_top_desktop;
+            width: 74.58492%;
+            padding-top: 17.30524%;
+            background-image: url('./images/summary_bg_desktop.svg');
+            background-color: white;
+            background-size: cover;
+        }
     }
     &::after {
         left: 4.10256%;
         background-image: url('./images/leaf_1.svg');
         @include leafs_style;
         animation: rotating 12s 1s linear infinite;
+        @include for-size($desktop) {
+            left: 24.96807%;
+            z-index: 3;
+        }
     }
     p:first-child {
         position: relative;
@@ -109,35 +186,79 @@ header {
             @include leafs_style;
             transform-origin: center bottom;
             animation: rotateZ 12s 1s ease-in-out infinite;
+            @include for-size($desktop) {
+                left: 41.8263%;
+            }
         }
         &::after {
             right: 3.6%;
             background-image: url('./images/leaf_3.svg');
             @include leafs_style;
             animation: scroll 12s 1s ease-in-out infinite;
+            @include for-size($desktop) {
+                left: 59.1954%;
+                animation: rotating-revert 12s 1s linear infinite;
+            }
         }
     }
 }
 
 .preamble {
     padding: 30px $mobile_content_padding 30px;
+    @include for-size($desktop) {
+        padding: 0 $desktop_content_padding;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-between;
+        max-height: 550px;
+    }
+    * {
+        @include for-size($desktop) {
+            max-width: 544px;
+        }
+    }
     h3 {
         @include headers-style;
         color: $orange;
+        @include for-size($desktop) {
+            margin-top: 41px;
+        }
     }
     p {
         margin-top: 15px;
+    }
+    p:first-child {
+        @include for-size($desktop) {
+            margin-top: 20px;
+        }
+    }
+    p:last-child {
+        @include for-size($desktop) {
+            max-width: 398px;
+            background: $background-yellow;
+            padding: 131px 22px 66px;
+            margin-top: 0;
+        }
     }
 }
 
 .supporting {
     padding-top: 365px;
     background: url('./images/support_bg.jpg') top no-repeat;
+    @include for-size($desktop) {
+        padding-top: 0;
+        margin-top: 62px;
+        background: none;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
 }
 
 .explanation,
 .participation {
-    padding: 30px 20px 0;
+    padding: 30px $mobile_content_padding 0;
     h3 {
         @include headers-style;
         color: $orange;
@@ -145,8 +266,28 @@ header {
     p {
         margin-top: 10px;
     }
-    @media screen and (min-width:420px) {
-        // desktop styles
+}
+.explanation {
+    @include for-size($desktop) {
+        padding-top: 0;
+        padding-right: $desktop_content_padding;
+        padding-bottom: 270px;
+        padding-left: 49.113%;
+        background: url('./images/support_bg3.jpg') left top no-repeat;
+        background-size: auto;
+    }
+    p {
+        @include for-size($desktop) {
+            padding-right: 20px;
+        }
+    }
+}
+.participation {
+    @include for-size($desktop) {
+        padding-top: 43px;
+        padding-right: $desktop_content_padding;
+        padding-left: 35.26042%;
+        background: url('./images/participation_bg.svg') left $desktop_content_padding top no-repeat;;
     }
 }
 
@@ -158,7 +299,7 @@ header {
 
 .benefits {
     margin-top: 30px;
-    padding: 30px 20px 0;
+    padding: 30px $mobile_content_padding 0;
     background: $background-yellow;
     color: $text-color1;
 
@@ -190,7 +331,7 @@ header {
         position: absolute;
         z-index: 1;
         left: calc(50% - ($leaf_size / 2));
-        bottom: 30px;
+        bottom: calc(5% + 5px);
         width: $leaf_size;
         padding-top: $leaf_size;
         background-image: url("./images/leaf_1.svg");
@@ -205,7 +346,7 @@ header {
    *******************/
 
 .requirements {
-    padding: 30px 20px 40px;
+    padding: 30px $mobile_content_padding 40px;
     background: $background-dark_blue;
     * {
         color: $text-color2;
@@ -219,48 +360,48 @@ header {
     }
 }
 
-@media only screen and (min-width: 420px) {
-    .page-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        grid-template-rows: 1fr 1fr;
-        max-width: 100%;
-        max-width: 1200px;
-        .benefits {
-            padding-left: 150px;
-            &::before {
-                bottom: -114px;
-            }
-        }
-        .requirements {
-            position: relative;
-            column-count: 3;
-            padding-right: 150px;
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 0.5em;
-                z-index: -1;
-            }
-            h3 {
-                column-span: all;
-            }
-            p {
-                padding: 5px;
-            }
-        }
-    }
-}
+// @media only screen and (min-width: 420px) {
+//     .page-wrapper {
+//         display: grid;
+//         grid-template-columns: 1fr 3fr;
+//         grid-template-rows: 1fr 1fr;
+//         max-width: 100%;
+//         max-width: 1200px;
+//         .benefits {
+//             padding-left: 150px;
+//             &::before {
+//                 bottom: -114px;
+//             }
+//         }
+//         .requirements {
+//             position: relative;
+//             column-count: 3;
+//             padding-right: 150px;
+//             &::after {
+//                 content: "";
+//                 position: absolute;
+//                 bottom: 0;
+//                 left: 0;
+//                 right: 0;
+//                 height: 0.5em;
+//                 z-index: -1;
+//             }
+//             h3 {
+//                 column-span: all;
+//             }
+//             p {
+//                 padding: 5px;
+//             }
+//         }
+//     }
+// }
 
 // Elizabeth
-footer {
+footer { 
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 12px 53px;
+    padding: 12px 12.82051%;
     background-color: $green;
     display: flex;
     justify-content: space-between;
@@ -281,7 +422,7 @@ footer {
     line-height: 130%;
     font-weight: 400;
     font-style: normal;
-    padding: 40px $mobile_content_padding 40px;
+    padding: 30px $mobile_content_padding;
     background-color: $orange;
     h3 {
         @include headers-style();

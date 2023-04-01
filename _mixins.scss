@@ -6,10 +6,21 @@
     font-family: Inter, sans-serif;
 }
 
+@mixin for-size($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
+
 @mixin headers-style {
     @include font-inika;
     font-size: 48px;
     line-height: 100%;
+
+    @include for-size($desktop) {
+        font-size: 58px;
+        line-height: 131.03448%;
+    }
 }
 
 @keyframes rotating {
@@ -19,6 +30,16 @@
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating-revert {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
     }
 }
 
