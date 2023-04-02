@@ -1,0 +1,80 @@
+@mixin font-inika {
+    font-family: Inika, serif;
+}
+
+@mixin font-basic {
+    font-family: Inter, sans-serif;
+}
+
+@mixin for-size($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin headers-style {
+    @include font-inika;
+    font-size: 48px;
+    line-height: 100%;
+
+    @include for-size($desktop) {
+        font-size: 58px;
+        line-height: 131.03448%;
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating-revert {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-40%);
+    }
+
+    40% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    70% {
+        transform: translateY(35%);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateZ {
+    25% {
+        transform: rotateZ(20deg);
+    }
+
+    75% {
+        transform: rotateZ(-25deg);
+    }
+}

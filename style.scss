@@ -1,170 +1,499 @@
-@import "./resets";
-@import "./variables";
+@import './variables';
+@import './mixins';
+@import './reset';
+body {
+    * {
+        @include font-basic;
+        font-size: 17px;
+        line-height: 130%;
+        font-weight: 400;
+        font-style: normal;
+        color: $font_color;
 
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+        @include for-size($desktop) {
+            font-size: 20px;
+            max-width: 1920px;
+        }
+    }
 }
 
-body {
-  margin: 0;
-  * {
-    // @include font-basic;
+.page-wrapper {
+    max-width: 100%;
+    position: absolute;
+}
+// header > *,  {
+//     @include for-size($desktop) {
+//         max-width: $desktop_content_width;
+//     }
+// }
+.intro {
+    @include for-size($desktop) {
+        position: relative;
+    }
+}
+header {
+    background: $green;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    text-align: center;
+    @include for-size($desktop) {
+        padding: 145px $desktop_content_padding 412px;
+        text-align: left;
+        max-width: 1920px;
+        max-height: 767px
+    }
+    h1 {
+        @include headers-style;
+        font-size: 20px;
+        line-height: 130%;
+        display: inline-block;
+        padding: 15px 64.5px;
+        background: white;
+        text-transform: uppercase;
+        @include for-size($desktop) {
+            padding: 15px 38px;
+            font-size: 20px;
+            line-height: 130%;
+        }
+    }
+    h2 {
+        @include headers-style;
+        color: white;
+        margin: 24px 0 0;
+        padding: 0 $mobile_content_padding;
+        @include for-size($desktop) {
+            padding: 0;
+            // font-size: 96px;
+            font-size: 5vw;
+            line-height: 130.20833%;
+            margin-top: 29px;
+            position: relative;
+            z-index: 2;
+        }
+        abbr {
+            display: inline-block;
+            color: inherit;
+            font: inherit;
+            line-height: 110%;
+            text-decoration: none;
+            border-bottom: 5px dashed #1A1831;
+        }
+    }
+}
+
+.summary {
+    $padding_top: 32.82051%; // 128px height on 390px width
+    $leaf_size: 25.64103%; // 100px on 390px width
+    $leaf_size_desktop: 210px;
+    $summary_top_desktop: 495px;
+    position: relative;
+    z-index: 1;
+    padding-top: $padding_top;
+    overflow: hidden;
+    @mixin leafs_style {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 5.265%;
+        width: $leaf_size;
+        padding-top: $leaf_size;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        @include for-size($desktop) {
+            top: $summary_top_desktop+30px;
+            width: $leaf_size_desktop;
+            padding-top: $leaf_size_desktop;
+            background-size: contain;
+        }
+    }
+    @include for-size($desktop) {
+        position: absolute;
+        top: 0;
+        right: $desktop_content_padding;
+        padding-top: 0;
+        height: 100%;
+        width: 81.5625%;
+        overflow: visible;
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+    }
+    a {
+        text-decoration: underline;
+    }
+    p {
+        padding: 30px $mobile_content_padding 0;
+        margin: 0;
+        background: #FFF8E1;
+        z-index: 3;
+        @include for-size($desktop) {
+            max-width: 398px;
+            background: $background-yellow;
+            padding-left: 22px;
+            padding-right: 43px;
+        }
+        abbr {
+            text-decoration: none;
+        }
+    }
+    p:first-child {
+        @include for-size($desktop) {
+            padding-top: 360px;
+        }
+    }
+    p+p {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        @include for-size($desktop) {
+            padding-top: 24px;
+            padding-bottom: 227px;
+        }
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding-top: $padding_top;
+        background-image: url('./images/summary_bg.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include for-size($desktop) {
+            top: $summary_top_desktop;
+            left: unset;
+            right: 398px;
+            // width: 74.58492%;
+            width: 1168px;
+            // padding-top: 17.30524%;
+            padding-top: 271px;
+            background-image: url('./images/summary_bg_desktop.svg');
+            background-color: white;
+            background-size: cover;
+        }
+    }
+    &::after {
+        left: 4.10256%;
+        background-image: url('./images/leaf_1.svg');
+        @include leafs_style;
+        animation: rotating 12s 1s linear infinite;
+        @include for-size($desktop) {
+            left: unset;
+            right: 967px;
+            z-index: 3;
+        }
+    }
+    p:first-child {
+        position: relative;
+        z-index: 3;
+    }
+    p:nth-child(2) {
+        &::before {
+            left: 37.69231%;
+            background-image: url('./images/leaf_2.svg');
+            @include leafs_style;
+            transform-origin: center bottom;
+            animation: rotateZ 12s 1s ease-in-out infinite;
+            @include for-size($desktop) {
+                // left: 41.8263%;
+                left: unset;
+                right: 696px;
+            }
+        }
+        &::after {
+            right: 3.6%;
+            background-image: url('./images/leaf_3.svg');
+            @include leafs_style;
+            animation: scroll 12s 1s ease-in-out infinite;
+            @include for-size($desktop) {
+                // left: 59.1954%;
+                right: 430px;
+                animation: rotating-revert 12s 1s linear infinite;
+            }
+        }
+    }
+}
+
+.preamble {
+    padding: 30px $mobile_content_padding 30px;
+    @include for-size($desktop) {
+        padding: 0 $desktop_content_padding;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-between;
+        max-height: 550px;
+    }
+    * {
+        @include for-size($desktop) {
+            // max-width: 544px;
+            max-width: 44%;
+        }
+    }
+    h3 {
+        @include headers-style;
+        color: $orange;
+        @include for-size($desktop) {
+            margin-top: 41px;
+        }
+    }
+    p {
+        margin-top: 15px;
+    }
+    p:first-child {
+        @include for-size($desktop) {
+            margin-top: 20px;
+        }
+    }
+    p:last-child {
+        @include for-size($desktop) {
+            max-width: 398px;
+            background: $background-yellow;
+            padding: 131px 22px 66px;
+            margin-top: 0;
+        }
+    }
+}
+
+.supporting {
+    padding-top: 365px;
+    background: url('./images/support_bg.jpg') top no-repeat;
+    @include for-size($desktop) {
+        padding-top: 0;
+        margin-top: 62px;
+        background: none;
+        display: grid;
+        grid-template-columns: 33.80208% 66.19791%;
+    }
+}
+
+.explanation,
+.participation {
+    padding: 30px $mobile_content_padding 0;
+    h3 {
+        @include headers-style;
+        color: $orange;
+    }
+    p {
+        margin-top: 10px;
+    }
+}
+.explanation {
+    @include for-size($desktop) {
+        padding-top: 0;
+        padding-right: $desktop_content_padding;
+        padding-bottom: 20px;
+        min-height: 705px;
+        padding-left: 49.113%;
+        background: url('./images/support_bg3.jpg') left top no-repeat;
+        background-size: auto;
+        grid-column: 1/-1;
+    }
+    p {
+        @include for-size($desktop) {
+            padding-right: 20px;
+            margin-top: 0;
+            padding-top: 10px;
+        }
+    }
+    p:last-child {
+        @include for-size($desktop) {
+            padding-bottom: 30px;
+        }
+    }
+    &>* {
+        @include for-size($desktop) {
+            background: white;
+            padding-left: 20px;
+        }
+    }
+}
+.participation {
+    @include for-size($desktop) {
+        padding-top: 43px;
+        padding-right: $desktop_content_padding;
+        padding-left: 35.26042%;
+        background: url('./images/participation_bg.svg') left $desktop_content_padding top no-repeat;
+        grid-column: 1/-1;
+    }
+}
+
+// jesse
+
+/********************
+   * Benefit Section
+   *******************/
+.benefits {
+    $padding_bottom: 69.23076%; // 270px height on 390px width
+    $leaf_size: 53.84615%; // 210px on 390px width
+    margin-top: 30px;
+    padding: 30px $mobile_content_padding $padding_bottom;
+    background: $background-yellow;
+    color: $text-color1;
+    position: relative;
+    z-index: 1;
+    @include for-size($desktop) {
+        padding: 49px 25px 295px 54.39137%;
+        grid-column: 1/ span 1;
+    }
+    h3 {
+        @include headers-style;
+    }
+    p {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding-top: $padding_bottom;
+        background-color: $green;
+        @include for-size($desktop) {
+            // width: 45.60862%;
+            width: 296px;
+            padding-top: 296px;
+            left: unset;
+            right: 0;
+            background-color: $background-orange;
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: calc(50% - ($leaf_size / 2));
+        bottom: calc(5% + 5px);
+        width: $leaf_size;
+        padding-top: $leaf_size;
+        background-image: url("./images/leaf_1.svg");
+        background-size: 100%;
+        animation: rotating 12s 1s linear infinite;
+        @include for-size($desktop) {
+            left: unset;
+            right: 38px;
+            width: 210px;
+            padding-top: 210px;
+            bottom: 43px;
+        }
+    }
+}
+
+
+/********************
+   * Requirements Section
+   *******************/
+
+.requirements {
+    padding: 30px $mobile_content_padding 40px;
+    background: $background-dark_blue;
+    @include for-size($desktop) {
+        grid-column: 2/ span 1;
+        padding: 49px 27.77340% 0 28px;
+        column-count: 3;
+    }
+    * {
+        color: $text-color2;
+    }
+    h3 {
+        @include headers-style;
+        line-height: 130%;
+        @include for-size($desktop) {
+            width: 100%;
+            column-span: all;
+        }
+    }
+    p {
+        margin-top: 10px;
+        @include for-size($desktop) {
+            // max-width: 21.45684%;
+            max-width: 271px;
+        }
+    }
+    p+p {
+        @include for-size($desktop) {
+            // margin-left: 26px;
+        }
+    }
+}
+.benefits,
+.requirements {
+    @include for-size($desktop) {
+        margin-top: 90px;
+    }
+}
+
+// Elizabeth
+footer { 
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px 12.82051%;
+    background-color: $green;
+    display: flex;
+    justify-content: center;
+    a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 0 10px;
+    }
+}
+
+.sidebar {
+    padding: 30px 20px;
+    margin-bottom: 50px; // height of footer
     font-size: 17px;
     line-height: 130%;
     font-weight: 400;
     font-style: normal;
-    // color: $font_color;
-    padding: 0 5px;
-  }
-}
-
-/********************
- * Page Container
- *******************/
-.page-wrapper {
-  max-width: 100%;
-
-  h1,
-  h2,
-  h3,
-  p {
-    margin: 0;
-  }
-
-  h3 {
-    font-family: "Inika", serif;
-    font-size: 48px;
-  }
-
-  .benefits,
-  .requirements {
-    padding: 5px;
-  }
-
-  /********************
-   * Benefit Section
-   *******************/
-  .benefits {
-    background: $background-yellow;
-    color: $text-color1;
-    $padding_bottom: 32.82051%; // 128px height on 390px width
-    $leaf_size: 25.64103%; // 100px on 390px width
-    @mixin leafs_style {
-      content: "";
-      position: absolute;
-      z-index: 2;
-      bottom: 2.265%;
-      width: $leaf_size;
-      padding-top: $leaf_size;
-      background-size: contain;
-      background-repeat: no-repeat;
+    padding: 30px $mobile_content_padding;
+    background-color: $orange;
+    @include for-size($desktop) {
+        padding: 61px $desktop_content_padding 50px;
     }
-
-    position: relative;
-    z-index: 1;
-    padding-bottom: $padding_bottom;
-
-    p {
-      margin: 0;
-      background: $background-yellow;
+    * {
+        color: white;
     }
-
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      right: -33.6%;
-      bottom: -136px;
-      width: 100%;
-      padding-top: $padding_bottom;
-      background-image: url("./images/benefits_bg.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      transform: rotate(90deg);
+    h3 {
+        @include headers-style();
+        color: white;
+        @include for-size($desktop) {
+            font-size: 40px;
+            line-height: 130%;
+        }
     }
+    li {
+        list-style-type: none;
 
-    &::after {
-      // left: 4.10256%;
-      // position: absolute;
-      right: 3.5%;
-      background-image: url("./images/leaf_1.svg");
-      @include leafs_style;
-      animation: rotating 12s 1s linear infinite;
+        a {
+            text-decoration: underline;
+        }
     }
-  }
-
-  /********************
-   * Requirements Section
-   *******************/
-  .requirements {
-    background: $background-dark_blue;
-    color: $text-color2;
-  }
-}
-
-a {
-  &:link {
-    color: $background-orange;
-    text-decoration: none;
-  }
-  &:visited {
-    color: $background-yellow;
-  }
-  &:hover {
-    border-bottom: 1px solid $background-brown;
-  }
-  &:active {
-    color: $background-green;
-  }
-}
-
-@media only screen and (min-width: 420px) {
-  .body * {
-    padding: 0 5px;
-  }
-
-  .page-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
-    max-width: 100%;
-    max-width: 1200px;
-
-    .benefits {
-      padding-left: 150px;
-
-    &::before {
-      bottom: -114px;
+    li + li {
+        margin-top: 8px;
     }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include for-size($desktop) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        div + div {
+            margin-top: 15px;
+            @include for-size($desktop) {
+                margin-top: 0;
+            }
+        }
     }
-    
-    .requirements {
-    position: relative;
-    column-count: 3;
-    padding-right: 150px;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 0.5em;
-      z-index: -1;
+    ul {
+        margin-top: 12px;
     }
-
-  h3 {
-    column-span: all;
-  }
-
-    p {
-      padding: 5px;
-    }
-  }
-  }
 }
